@@ -1,0 +1,1005 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="ThreadPool_8h-source_files/filelist.xml">
+<title>JTIUtils: ThreadPool.h Source File</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>masmith</o:Author>
+  <o:LastAuthor>masmith</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2004-11-15T18:53:00Z</o:Created>
+  <o:LastSaved>2004-11-15T18:54:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>963</o:Words>
+  <o:Characters>5493</o:Characters>
+  <o:Company>Verisign</o:Company>
+  <o:Lines>45</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>6444</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>90</w:Zoom>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=doxygen.css>
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-believe-normal-left:yes;}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-weight:bold;}
+h4
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-weight:bold;}
+h5
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-weight:bold;}
+h6
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:7.5pt;
+	font-weight:bold;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin-top:0in;
+	margin-bottom:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.formuladsp, li.formuladsp, div.formuladsp
+	{mso-style-name:formuladsp;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.fragment, li.fragment, div.fragment
+	{mso-style-name:fragment;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdtable, li.mdtable, div.mdtable
+	{mso-style-name:mdtable;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	background:#F4F4FB;
+	border:none;
+	mso-border-alt:solid #868686 .75pt;
+	padding:0in;
+	mso-padding-alt:0in 0in 0in 0in;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdrow, li.mdrow, div.mdrow
+	{mso-style-name:mdrow;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdescleft, li.mdescleft, div.mdescleft
+	{mso-style-name:mdescleft;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.mdescright, li.mdescright, div.mdescright
+	{mso-style-name:mdescright;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.memitemleft, li.memitemleft, div.memitemleft
+	{mso-style-name:memitemleft;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memitemright, li.memitemright, div.memitemright
+	{mso-style-name:memitemright;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplitemleft, li.memtemplitemleft, div.memtemplitemleft
+	{mso-style-name:memtemplitemleft;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplitemright, li.memtemplitemright, div.memtemplitemright
+	{mso-style-name:memtemplitemright;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplparams, li.memtemplparams, div.memtemplparams
+	{mso-style-name:memtemplparams;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.search, li.search, div.search
+	{mso-style-name:search;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><![if mso 9]>
+<style>
+p.MsoNormal
+	{margin-left:15.0pt;}
+</style>
+<![endif]><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link="#252E78" vlink="#3D2185" style='tab-interval:
+.5in;margin-left:15.0pt;margin-right:15.0pt'>
+
+<div class=Section1>
+
+<div>
+
+<div style='border:solid #CCCCCC 1.0pt;mso-border-alt:solid #CCCCCC .75pt;
+padding:3.0pt 5.0pt 3.0pt 5.0pt;background:whitesmoke;margin-left:1.5pt;
+margin-right:6.0pt'><pre style='margin-top:3.0pt;margin-right:0in;margin-bottom:
+3.0pt;margin-left:0in;background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'><!-- Generated by Doxygen 1.3.9.1 -->00001 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00002 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00003 </span><span
+class=comment><span style='font-family:"Courier New"'>// ThreadPool.h</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00004 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00005 </span><span
+class=comment><span style='font-family:"Courier New"'>// This file describes the I/O completion port manager class which holds</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00006 </span><span
+class=comment><span style='font-family:"Courier New"'>// and controls an I/O completion port handle and a set of worker threads.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00007 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00008 </span><span
+class=comment><span style='font-family:"Courier New"'>// Copyright (C) 2001-2003 JulMar Technology, Inc.<span style='mso-spacerun:yes'>   </span>All rights reserved</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00009 </span><span
+class=comment><span style='font-family:"Courier New"'>// This is private property of JulMar Technology, Inc.<span style='mso-spacerun:yes'>  </span>It may not be</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00010 </span><span
+class=comment><span style='font-family:"Courier New"'>// distributed or released without express written permission of</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00011 </span><span
+class=comment><span style='font-family:"Courier New"'>// JulMar Technology, Inc.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00012 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00013 </span><span
+class=comment><span style='font-family:"Courier New"'>// You must not remove this notice, or any other, from this software.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00014 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00015 </span><span
+class=comment><span style='font-family:"Courier New"'>// Revision History</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00016 </span><span
+class=comment><span style='font-family:"Courier New"'>// -------------------------------------------------------</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00017 </span><span
+class=comment><span style='font-family:"Courier New"'>// 04/03/2001<span style='mso-spacerun:yes'>   </span>MCS<span style='mso-spacerun:yes'>     </span>Initial revision for JTTSP console</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00018 </span><span
+class=comment><span style='font-family:"Courier New"'>// 07/10/2002<span style='mso-spacerun:yes'>   </span>MCS<span style='mso-spacerun:yes'>     </span>Updated with some minor changes from JTISockets</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00019 </span><span
+class=comment><span style='font-family:"Courier New"'>// 10/28/2002<span style='mso-spacerun:yes'>   </span>MCS Rewrote as generic class split away from JTISockets.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00020 </span><span
+class=comment><span style='font-family:"Courier New"'>// </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00021 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00022 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00023 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#ifndef __IOCP_THREADPOOL_H_INCL__</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00024 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#define __IOCP_THREADPOOL_H_INCL__</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00025 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00026 </span><span
+class=comment><span style='font-family:"Courier New"'>/*----------------------------------------------------------------------------</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00027 </span><span
+class=comment><span style='font-family:"Courier New"'>// INCLUDE FILES</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00028 </span><span
+class=comment><span style='font-family:"Courier New"'>-----------------------------------------------------------------------------*/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00029 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#pragma warning(disable:4571)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00030 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#include &lt;list&gt;</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00031 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#pragma warning(default:4571)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00032 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#include &lt;Lock.h&gt;</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00033 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00034 </span><span
+class=comment><span style='font-family:"Courier New"'>/*****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00035 </span><span
+class=comment><span style='font-family:"Courier New"'>// PC-Lint options</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00036 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00037 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -save</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00038 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00039 </span><span
+class=comment><span style='font-family:"Courier New"'>// Ignore repeated include files</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00040 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -e{537}</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00041 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00042 </span><span
+class=comment><span style='font-family:"Courier New"'>// Ignore C-style casts</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00043 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint --e{1924}</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00044 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00045 </span><span
+class=comment><span style='font-family:"Courier New"'>// Ignore public data properties</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00046 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -esym(1925, IOCPThreadPool::IsRunning, IOCPThreadPool::IOCP, IOCPThreadPool::NumThreads)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00047 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -esym(1925, IOCPThreadPool::IsShuttingDown)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00048 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00049 </span><span
+class=comment><span style='font-family:"Courier New"'>// Data did not appear in constructor initializer list (properties)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00050 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -esym(1927, IOCPThreadPool::IsRunning, IOCPThreadPool::IOCP, IOCPThreadPool::NumThreads)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00051 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -esym(1927, IOCPThreadPool::IsShuttingDown)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00052 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00053 </span><span
+class=comment><span style='font-family:"Courier New"'>// Data not initialized by constructor (properties)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00054 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -esym(1401, IOCPThreadPool::IsRunning, IOCPThreadPool::IOCP, IOCPThreadPool::NumThreads)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00055 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -esym(1401, IOCPThreadPool::IsShuttingDown)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00056 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00057 </span><span
+class=comment><span style='font-family:"Courier New"'>// Data not initialized by assignment operator (properties)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00058 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -esym(1539, IOCPThreadPool::IsRunning, IOCPThreadPool::IOCP, IOCPThreadPool::NumThreads)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00059 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -esym(1539, IOCPThreadPool::IsShuttingDown)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00060 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00061 </span><span
+class=comment><span style='font-family:"Courier New"'>// Const method indirectly modifies class</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00062 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -esym(1763, IOCPThreadPool::get_IOCP)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00063 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00064 </span><span
+class=comment><span style='font-family:"Courier New"'>// Private constructors defined</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00065 </span><span
+class=comment><span style='font-family:"Courier New"'>//lint -esym(1704, IOCPThreadPool*)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00066 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00067 </span><span
+class=comment><span style='font-family:"Courier New"'>/*****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00068 </span><span
+class=comment><span style='font-family:"Courier New"'>// Our function pointer type</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00069 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#ifdef _lint</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00070<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>typedef</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>unsigned</span></span><span style='color:black'> </span><span
+class=keywordtype><span style='font-family:"Courier New"'>long</span></span><span
+style='color:black'> TP_COMPLETION_KEY;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00071 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#else</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00072<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>typedef</span></span><span
+style='color:black'> ULONG_PTR TP_COMPLETION_KEY;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00073 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#endif</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00074 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00075 </span><span
+class=keyword><span style='font-family:"Courier New"'>namespace </span></span><span
+style='color:black'>JTI_Util<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00076 {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00077 </span><span
+class=comment><span style='font-family:"Courier New"'>/*****************************************************************************</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00078 </span><span
+class=comment><span style='font-family:"Courier New"'>// IOCPThreadPool</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00079 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00080 </span><span
+class=comment><span style='font-family:"Courier New"'>// This class manages a given IOCP handle and a pool of worker threads to </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00081 </span><span
+class=comment><span style='font-family:"Courier New"'>// dispatch work events to worker threads tied to the I/O port.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00082 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00083 </span><span
+class=comment><span style='font-family:"Courier New"'>*****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00084 </span><span
+class=keyword><span style='font-family:"Courier New"'>class </span></span><span
+style='color:black'>IOCPThreadPool : </span><span class=keyword><span
+style='font-family:"Courier New"'>public</span></span><span style='color:black'> LockableObject&lt;MultiThreadModel&gt;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00085 {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00086 </span><span
+class=comment><span style='font-family:"Courier New"'>// Class data</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00087 </span><span
+class=keyword><span style='font-family:"Courier New"'>private</span></span><span
+style='color:black'>:<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00088<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>typedef</span></span><span
+style='color:black'> std::list&lt;std::pair&lt;unsigned int, HANDLE&gt; &gt; ThreadList;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00089<span style='mso-spacerun:yes'>         </span>HANDLE iocp_;<span style='mso-spacerun:yes'>                                   </span></span><span
+class=comment><span style='font-family:"Courier New"'>// IOCP tied to thread pool</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00090<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>volatile</span></span><span
+style='color:black'> </span><span class=keyword><span style='font-family:"Courier New"'>mutable</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>long</span></span><span style='color:black'> numThreads_;<span style='mso-spacerun:yes'>      </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Number of workers currently tied to IOCP</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00091<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>volatile</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>bool</span></span><span style='color:black'> shutdown_;<span style='mso-spacerun:yes'>                </span></span><span
+class=comment><span style='font-family:"Courier New"'>// True when shutting down</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00092<span style='mso-spacerun:yes'>         </span>ThreadList threads_;<span style='mso-spacerun:yes'>                    </span></span><span
+class=comment><span style='font-family:"Courier New"'>// IOCP threads</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00093<span style='mso-spacerun:yes'>         </span>DWORD timeout_;<span style='mso-spacerun:yes'>                                </span><span style='mso-spacerun:yes'> </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Thread timeout value</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00094 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00095<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Constructor</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00096 </span><span
+class=keyword><span style='font-family:"Courier New"'>public</span></span><span
+style='color:black'>:<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00097<span style='mso-spacerun:yes'>         </span>IOCPThreadPool();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00098<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>virtual</span></span><span
+style='color:black'> ~IOCPThreadPool();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00099 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00100<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Properties</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00101 </span><span
+class=keyword><span style='font-family:"Courier New"'>public</span></span><span
+style='color:black'>:<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00102<span style='mso-spacerun:yes'>         </span>__declspec(property(get=get_IsRunning)) </span><span
+class=keywordtype><span style='font-family:"Courier New"'>bool</span></span><span
+style='color:black'> IsRunning;<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00103<span style='mso-spacerun:yes'>         </span>__declspec(property(get=get_IOCP)) HANDLE IOCP;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00104<span style='mso-spacerun:yes'>         </span>__declspec(property(get=get_NumThreads, put=set_NumThreads)) </span><span
+class=keywordtype><span style='font-family:"Courier New"'>long</span></span><span
+style='color:black'> NumThreads;<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00105<span style='mso-spacerun:yes'>         </span>__declspec(property(get=get_IsShuttingDown)) </span><span
+class=keywordtype><span style='font-family:"Courier New"'>bool</span></span><span
+style='color:black'> IsShuttingDown;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00106<span style='mso-spacerun:yes'>      </span><span style='mso-spacerun:yes'>   </span>__declspec(property(get=get_Timeout, put=set_Timeout)) DWORD ThreadTimeout;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00107 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00108 </span><span
+class=comment><span style='font-family:"Courier New"'>// Methods</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00109 </span><span
+class=keyword><span style='font-family:"Courier New"'>public</span></span><span
+style='color:black'>:<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00110<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>bool</span></span><span
+style='color:black'> Start(</span><span class=keywordtype><span
+style='font-family:"Courier New"'>int</span></span><span style='color:black'> nConcurrentThreads = 0, </span><span
+class=keywordtype><span style='font-family:"Courier New"'>int</span></span><span
+style='color:black'> nStartThreads = 0, HANDLE hIOCP = INVALID_HANDLE_VALUE) </span><span
+class=keywordflow><span style='font-family:"Courier New"'>throw</span></span><span
+style='color:black'>();<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00111<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>bool</span></span><span
+style='color:black'> Shutdown(DWORD dwWaitTime=60000) </span><span
+class=keywordflow><span style='font-family:"Courier New"'>throw</span></span><span
+style='color:black'>();<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00112<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>bool</span></span><span
+style='color:black'> AssociateHandle(HANDLE hHandle, TP_COMPLETION_KEY completionKey) </span><span
+class=keywordflow><span style='font-family:"Courier New"'>throw</span></span><span
+style='color:black'>();<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00113<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>bool</span></span><span
+style='color:black'> PostQueuedCompletionStatus(TP_COMPLETION_KEY completionKey, DWORD dwNumBytesTransferred=0, LPOVERLAPPED lpOverlapped=NULL) </span><span
+class=keywordflow><span style='font-family:"Courier New"'>throw</span></span><span
+style='color:black'>();<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00114<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>bool</span></span><span
+style='color:black'> IsCurrentThreadInPool() const throw();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00115 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00116 </span><span
+class=comment><span style='font-family:"Courier New"'>// Property helpers</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00117 public:<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00118<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>bool</span></span><span
+style='color:black'> get_IsRunning() const throw();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00119<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>bool</span></span><span
+style='color:black'> get_IsShuttingDown() const throw();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00120<span style='mso-spacerun:yes'>         </span>HANDLE get_IOCP() const throw();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00121<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>long</span></span><span
+style='color:black'> get_NumThreads() const throw();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00122<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>bool</span></span><span
+style='color:black'> set_NumThreads(</span><span class=keywordtype><span
+style='font-family:"Courier New"'>int</span></span><span style='color:black'> nThreads) throw();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00123<span style='mso-spacerun:yes'>         </span>DWORD get_Timeout() const;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00124<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>void</span></span><span
+style='color:black'> set_Timeout(DWORD t);<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00125 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00126 </span><span
+class=comment><span style='font-family:"Courier New"'>// Internal methods</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00127 protected:<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00128<span style='mso-spacerun:yes'>         </span>virtual </span><span
+class=keywordtype><span style='font-family:"Courier New"'>void</span></span><span
+style='color:black'> WorkerThreadStart() {</span><span class=comment><span
+style='font-family:"Courier New"'>/* */</span></span><span style='color:black'>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00129<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>virtual</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>bool</span></span><span style='color:black'> ProcessWork(LPOVERLAPPED pio, DWORD dwBytesTransferred, TP_COMPLETION_KEY CompletionKey, BOOL rc, DWORD dwLastError) = 0;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00130<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>virtual</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>void</span></span><span style='color:black'> WorkerThreadEnd() {</span><span
+class=comment><span style='font-family:"Courier New"'>/* */</span></span><span
+style='color:black'>}<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00131 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00132 </span><span
+class=keyword><span style='font-family:"Courier New"'>private</span></span><span
+style='color:black'>:<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00133<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>void</span></span><span
+style='color:black'> Run();<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00134<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>void</span></span><span
+style='color:black'> OnThreadClosing() throw();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00135<span style='mso-spacerun:yes'>         </span>static </span><span
+class=keywordtype><span style='font-family:"Courier New"'>unsigned</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>int</span></span><span style='color:black'> __stdcall InternalEventIOEntry(</span><span
+class=keywordtype><span style='font-family:"Courier New"'>void</span></span><span
+style='color:black'>* pv) {<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00136<span style='mso-spacerun:yes'>                 </span>reinterpret_cast&lt;IOCPThreadPool*&gt;(pv)-&gt;Run();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00137<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>return</span></span><span
+style='color:black'> 0;<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00138<span style='mso-spacerun:yes'>         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00139<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Unavailable</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00140<span style='mso-spacerun:yes'>         </span>IOCPThreadPool(</span><span
+class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> IOCPThreadPool&amp; rhs);<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00141<span style='mso-spacerun:yes'>         </span>IOCPThreadPool&amp; operator=(</span><span
+class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> IOCPThreadPool&amp; rhs);<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00142 };<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00143 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00144 } </span><span
+class=comment><span style='font-family:"Courier New"'>// JTI_Util</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00145 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00146 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#endif // __IOCP_THREADPOOL_H_INCL__</span></span><span
+style='color:black'><o:p></o:p></span></pre></div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

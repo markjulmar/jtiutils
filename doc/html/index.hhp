@@ -1,0 +1,66 @@
+[OPTIONS]
+Compiled file=jtiUtils.chm
+Compatibility=1.1
+Full-text search=Yes
+Contents file=index.hhc
+Default Window=main
+Default topic=index.html
+Index file=index.hhk
+Language=0x409 English (United States)
+Create CHI file=YES
+Title=JTIUtils
+
+[WINDOWS]
+main="JTIUtils","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x387e,,,,,,,,0
+
+[FILES]
+index.html
+AdoConn_8h-source.html
+Base64_8h-source.html
+binstream_8h-source.html
+CommandLineParser_8h-source.html
+comutls_8h-source.html
+DateTime_8h-source.html
+Delegates_8h-source.html
+Dyncreate_8cpp-source.html
+dyncreate_8h-source.html
+EventLog_8h-source.html
+FileEventLogger_8cpp-source.html
+FileEventLogger_8h-source.html
+FileSystemWatcher_8cpp-source.html
+FileSystemWatcher_8h-source.html
+JTIUtils_8h-source.html
+Lock_8h-source.html
+Longevity_8cpp-source.html
+Longevity_8h-source.html
+ManagementObject_8h-source.html
+MemoryMappedFile_8h-source.html
+MemPool_8h-source.html
+memstream_8h-source.html
+MsxmlHelper_8h-source.html
+Observer_8h-source.html
+PsList_8h-source.html
+RefCount_8h-source.html
+Registry_8h-source.html
+RWLock_8h-source.html
+SEHException_8h-source.html
+ServiceSupport_8cpp-source.html
+ServiceSupport_8h-source.html
+SingletonRegistry_8h-source.html
+sqlstream_8cpp-source.html
+sqlstream_8h-source.html
+StatTimer_8h-source.html
+stlx_8h-source.html
+Synchronization_8h-source.html
+ThreadPool_8cpp-source.html
+ThreadPool_8h-source.html
+ThunkWriter_8h-source.html
+Timers_8cpp-source.html
+Timers_8h-source.html
+TraceLogger_8cpp-source.html
+TraceLogger_8h-source.html
+tscontainer_8h-source.html
+WorkerThreadPool_8h-source.html
+XmlConfig_8h-source.html
+XmlParser_8cpp-source.html
+XmlParser_8h-source.html

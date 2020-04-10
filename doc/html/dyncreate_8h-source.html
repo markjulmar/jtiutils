@@ -1,0 +1,886 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="dyncreate_8h-source_files/filelist.xml">
+<title>JTIUtils: dyncreate.h Source File</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>masmith</o:Author>
+  <o:LastAuthor>masmith</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Created>2004-11-15T17:09:00Z</o:Created>
+  <o:LastSaved>2004-11-15T18:49:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>727</o:Words>
+  <o:Characters>4147</o:Characters>
+  <o:Company>Verisign</o:Company>
+  <o:Lines>34</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>4865</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>90</w:Zoom>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=doxygen.css>
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-believe-normal-left:yes;}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-weight:bold;}
+h4
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-weight:bold;}
+h5
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-weight:bold;}
+h6
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:7.5pt;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#252E78;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#3D2185;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.formuladsp, li.formuladsp, div.formuladsp
+	{mso-style-name:formuladsp;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.fragment, li.fragment, div.fragment
+	{mso-style-name:fragment;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdtable, li.mdtable, div.mdtable
+	{mso-style-name:mdtable;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	background:#F4F4FB;
+	border:none;
+	mso-border-alt:solid #868686 .75pt;
+	padding:0in;
+	mso-padding-alt:0in 0in 0in 0in;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdrow, li.mdrow, div.mdrow
+	{mso-style-name:mdrow;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdescleft, li.mdescleft, div.mdescleft
+	{mso-style-name:mdescleft;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.mdescright, li.mdescright, div.mdescright
+	{mso-style-name:mdescright;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.memitemleft, li.memitemleft, div.memitemleft
+	{mso-style-name:memitemleft;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memitemright, li.memitemright, div.memitemright
+	{mso-style-name:memitemright;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplitemleft, li.memtemplitemleft, div.memtemplitemleft
+	{mso-style-name:memtemplitemleft;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplitemright, li.memtemplitemright, div.memtemplitemright
+	{mso-style-name:memtemplitemright;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplparams, li.memtemplparams, div.memtemplparams
+	{mso-style-name:memtemplparams;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.search, li.search, div.search
+	{mso-style-name:search;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><![if mso 9]>
+<style>
+p.MsoNormal
+	{margin-left:15.0pt;}
+</style>
+<![endif]><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="3074"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link="#252E78" vlink="#3D2185" style='tab-interval:
+.5in;margin-left:15.0pt;margin-right:15.0pt'>
+
+<div class=Section1>
+
+<div>
+
+<div style='margin-left:1.5pt;margin-right:6.0pt'>
+
+<div style='border:solid #CCCCCC 1.0pt;mso-border-alt:solid #CCCCCC .75pt;
+padding:3.0pt 5.0pt 3.0pt 5.0pt;background:whitesmoke'><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00001 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00002 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00003 </span><span
+class=comment><span style='font-family:"Courier New"'>// Dyncreate.h</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00004 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00005 </span><span
+class=comment><span style='font-family:"Courier New"'>// Support for polymorphic dynamic object creation under RTTI.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00006 </span><span
+class=comment><span style='font-family:"Courier New"'>// This replaces the MFC mechanism with one based on the native runtime-type</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00007 </span><span
+class=comment><span style='font-family:"Courier New"'>// information in the compiler.<span style='mso-spacerun:yes'>  </span>Note that the program should be compiled with</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00008 </span><span
+class=comment><span style='font-family:"Courier New"'>// RTTI support (/GR)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00009 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00010 </span><span
+class=comment><span style='font-family:"Courier New"'>// Copyright (C) 1997-2003 JulMar Technology, Inc. <span style='mso-spacerun:yes'>  </span>All rights reserved</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00011 </span><span
+class=comment><span style='font-family:"Courier New"'>// This is private property of JulMar Technology, Inc.<span style='mso-spacerun:yes'>  </span>It may not be</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00012 </span><span
+class=comment><span style='font-family:"Courier New"'>// distributed or released without express written permission of</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00013 </span><span
+class=comment><span style='font-family:"Courier New"'>// JulMar Technology, Inc.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00014 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00015 </span><span
+class=comment><span style='font-family:"Courier New"'>// You must not remove this notice, or any other, from this software.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00016 </span><span
+class=comment><span style='font-family:"Courier New"'>// </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00017 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00018 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00019 </span><span
+class=comment><span style='font-family:"Courier New"'>/*----------------------------------------------------------------------------</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00020 </span><span
+class=comment><span style='font-family:"Courier New"'>//<span style='mso-spacerun:yes'>  </span>INCLUDE FILES</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00021 </span><span
+class=comment><span style='font-family:"Courier New"'>-----------------------------------------------------------------------------*/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00022 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#include &lt;string.h&gt;</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00023 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00024 </span><span
+class=comment><span style='font-family:"Courier New"'>/*----------------------------------------------------------------------------</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00025 </span><span
+class=comment><span style='font-family:"Courier New"'>//<span style='mso-spacerun:yes'>  </span>MACROS</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00026 </span><span
+class=comment><span style='font-family:"Courier New"'>-----------------------------------------------------------------------------*/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00027 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#define DECLARE_JTI_DYNCREATE(rclass) \</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00028 </span><span
+class=preprocessor><span style='font-family:"Courier New"'><span style='mso-spacerun:yes'>        </span>static JTI_Util::TFactory&lt;rclass&gt; _fac##rclass;</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00029 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00030 </span><span
+class=keyword><span style='font-family:"Courier New"'>namespace </span></span><span
+style='color:black'>JTI_Util<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00031 {<span style='mso-spacerun:yes'>    </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00032 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00033 </span><span
+class=comment><span style='font-family:"Courier New"'>// CreateDynamicObject</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00034 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00035 </span><span
+class=comment><span style='font-family:"Courier New"'>// Create a new object dynamically. Search the list of dynamic</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00036 </span><span
+class=comment><span style='font-family:"Courier New"'>// objects and call each create_object() method until one of them </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00037 </span><span
+class=comment><span style='font-family:"Courier New"'>// is successful in making the required object. If we get to the end of the</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00038 </span><span
+class=comment><span style='font-family:"Courier New"'>// list, then the object wasn't registered.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00039 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00040 </span><span
+class=comment><span style='font-family:"Courier New"'>// Usage:</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00041 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00042 </span><span
+class=comment><span style='font-family:"Courier New"'>// class A {...};</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00043 </span><span
+class=comment><span style='font-family:"Courier New"'>// DECLARE_JTI_DYNCREATE(A)</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00044 </span><span
+class=comment><span style='font-family:"Courier New"'>//<span style='mso-spacerun:yes'>      </span>...</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00045 </span><span
+class=comment><span style='font-family:"Courier New"'>// A* pa = JTI_Util::CreateDynamicObject&lt;A&gt;();</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00046 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00047 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00048 </span><span
+class=keyword><span style='font-family:"Courier New"'>template</span></span><span
+style='color:black'> &lt;</span><span class=keyword><span style='font-family:
+"Courier New"'>class</span></span><span style='color:black'> T&gt;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00049 T* CreateDynamicObject()<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00050 {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00051<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>return</span></span><span
+style='color:black'> reinterpret_cast&lt;T*&gt;(IRttiFactory::CreateDynamicObject(</span><span
+class=keyword><span style='font-family:"Courier New"'>typeid</span></span><span
+style='color:black'>(T).name()));<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00052 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00053 }</span><span
+class=comment><span style='font-family:"Courier New"'>// CreateDynamicObject</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00054 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00055 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00056 </span><span
+class=comment><span style='font-family:"Courier New"'>// IRttiFactory</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00057 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00058 </span><span
+class=comment><span style='font-family:"Courier New"'>// This interface describes the abstract RTTI factory which is derived from</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00059 </span><span
+class=comment><span style='font-family:"Courier New"'>// using a type-specific class from TFactory.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00060 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00061 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00062 </span><span
+class=keyword><span style='font-family:"Courier New"'>class </span></span><span
+style='color:black'>IRttiFactory<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00063 {<span style='mso-spacerun:yes'>    </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00064 </span><span
+class=comment><span style='font-family:"Courier New"'>// Constructor/Destructor</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00065 </span><span
+class=keyword><span style='font-family:"Courier New"'>public</span></span><span
+style='color:black'>:<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00066<span style='mso-spacerun:yes'>         </span>IRttiFactory() <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00067<span style='mso-spacerun:yes'>         </span>{ <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00068<span style='mso-spacerun:yes'>                 </span>nextPtr_ = headPtr_; <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00069<span style='mso-spacerun:yes'>                 </span>headPtr_ = </span><span
+class=keyword><span style='font-family:"Courier New"'>this</span></span><span
+style='color:black'>; <o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00070<span style='mso-spacerun:yes'>         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00071<span style='mso-spacerun:yes'>         </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00072<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>virtual</span></span><span
+style='color:black'> ~IRttiFactory() <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00073<span style='mso-spacerun:yes'>         </span>{<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00074<span style='mso-spacerun:yes'>                 </span>IRttiFactory** ppNext = &amp;headPtr_;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00075<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>for</span></span><span
+style='color:black'> (; *ppNext != NULL; ppNext = &amp;(*ppNext)-&gt;nextPtr_) {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00076<span style='mso-spacerun:yes'>                         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>if</span></span><span
+style='color:black'> (*ppNext == </span><span class=keyword><span
+style='font-family:"Courier New"'>this</span></span><span style='color:black'>) {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00077<span style='mso-spacerun:yes'>                                 </span>*ppNext = (*ppNext)-&gt;nextPtr_;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00078<span style='mso-spacerun:yes'>               </span><span style='mso-spacerun:yes'>                  </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>break</span></span><span
+style='color:black'>;<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00079<span style='mso-spacerun:yes'>                         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00080<span style='mso-spacerun:yes'>                 </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00081<span style='mso-spacerun:yes'>         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00082<span style='mso-spacerun:yes'>         </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00083 </span><span
+class=comment><span style='font-family:"Courier New"'>// Methods</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00084 </span><span
+class=keyword><span style='font-family:"Courier New"'>public</span></span><span
+style='color:black'>:<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00085<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// This method walks all the registered classes and invokes the CreateObject</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00086<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// function of the specific type to create.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00087<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>static</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>void</span></span><span style='color:black'>* CreateDynamicObject(</span><span
+class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>char</span></span><span style='color:black'>* pszClass) <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00088<span style='mso-spacerun:yes'>         </span>{<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00089<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>void</span></span><span
+style='color:black'>* pObject = NULL;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00090<span style='mso-spacerun:yes'>                 </span></span><span
+class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> IRttiFactory* currFactory = headPtr_;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00091<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>for</span></span><span
+style='color:black'> (; currFactory != NULL &amp;&amp; pObject == NULL; currFactory = currFactory-&gt;nextPtr_)<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00092<span style='mso-spacerun:yes'>                         </span>pObject = currFactory-&gt;CreateObject(pszClass);<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00093<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>return</span></span><span
+style='color:black'> pObject;<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00094<span style='mso-spacerun:yes'>         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00095 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00096 </span><span
+class=comment><span style='font-family:"Courier New"'>// Required overrides</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00097 </span><span
+class=keyword><span style='font-family:"Courier New"'>private</span></span><span
+style='color:black'>:<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00098<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>virtual</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>void</span></span><span style='color:black'>* CreateObject(</span><span
+class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>char</span></span><span style='color:black'>* pszClass) </span><span
+class=keyword><span style='font-family:"Courier New"'>const </span></span><span
+style='color:black'>= 0;<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00099 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00100 </span><span
+class=comment><span style='font-family:"Courier New"'>// Class data</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00101 </span><span
+class=keyword><span style='font-family:"Courier New"'>private</span></span><span
+style='color:black'>:<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00102<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>static</span></span><span
+style='color:black'> IRttiFactory* headPtr_;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00103<span style='mso-spacerun:yes'>         </span>IRttiFactory* nextPtr_;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00104 };<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00105 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00106 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00107 </span><span
+class=comment><span style='font-family:"Courier New"'>// TFactory</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00108 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00109 </span><span
+class=comment><span style='font-family:"Courier New"'>// This template class implements the specific typed factory for a given</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00110 </span><span
+class=comment><span style='font-family:"Courier New"'>// C++ RTTI-capable object.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00111 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00112 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00113 </span><span
+class=keyword><span style='font-family:"Courier New"'>template</span></span><span
+style='color:black'> &lt;</span><span class=keyword><span style='font-family:
+"Courier New"'>class</span></span><span style='color:black'> T&gt; <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00114 </span><span
+class=keyword><span style='font-family:"Courier New"'>class </span></span><span
+style='color:black'>TFactory : </span><span class=keyword><span
+style='font-family:"Courier New"'>public</span></span><span style='color:black'> IRttiFactory<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00115 {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00116<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>virtual</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>void</span></span><span style='color:black'> *CreateObject(</span><span
+class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>char</span></span><span style='color:black'>* pszClass)</span><span
+class=keyword><span style='font-family:"Courier New"'> const </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00117 </span><span
+class=keyword><span style='font-family:"Courier New"'><span style='mso-spacerun:yes'>        </span></span></span><span
+style='color:black'>{<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00118<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>return</span></span><span
+style='color:black'> !stricmp(</span><span class=keyword><span
+style='font-family:"Courier New"'>typeid</span></span><span style='color:black'>(T).name(), pszClass)<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00119<span style='mso-spacerun:yes'>                                 </span>? (</span><span
+class=keywordtype><span style='font-family:"Courier New"'>void</span></span><span
+style='color:black'>*)( </span><span class=keyword><span style='font-family:
+"Courier New"'>new</span></span><span style='color:black'> T ) : (</span><span
+class=keywordtype><span style='font-family:"Courier New"'>void</span></span><span
+style='color:black'>*)0;<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00120<span style='mso-spacerun:yes'>         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00121 };<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00122 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00123 }</span><span
+class=comment><span style='font-family:"Courier New"'>// namespace JTI_Util</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00124 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00125 <o:p></o:p></span></pre></div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="index_files/filelist.xml">
+<title>JTIUtils: Main Page</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>masmith</o:Author>
+  <o:LastAuthor>masmith</o:LastAuthor>
+  <o:Revision>14</o:Revision>
+  <o:TotalTime>41</o:TotalTime>
+  <o:Created>2004-11-15T16:20:00Z</o:Created>
+  <o:LastSaved>2004-11-15T19:07:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1272</o:Words>
+  <o:Characters>7254</o:Characters>
+  <o:Company>Verisign</o:Company>
+  <o:Lines>60</o:Lines>
+  <o:Paragraphs>17</o:Paragraphs>
+  <o:CharactersWithSpaces>8509</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>90</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=doxygen.css>
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-believe-normal-left:yes;}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-weight:bold;}
+h4
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-weight:bold;}
+h5
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-weight:bold;}
+h6
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:7.5pt;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#252E78;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#3D2185;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.formuladsp, li.formuladsp, div.formuladsp
+	{mso-style-name:formuladsp;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.fragment, li.fragment, div.fragment
+	{mso-style-name:fragment;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdtable, li.mdtable, div.mdtable
+	{mso-style-name:mdtable;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	background:#F4F4FB;
+	border:none;
+	mso-border-alt:solid #868686 .75pt;
+	padding:0in;
+	mso-padding-alt:0in 0in 0in 0in;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdrow, li.mdrow, div.mdrow
+	{mso-style-name:mdrow;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdescleft, li.mdescleft, div.mdescleft
+	{mso-style-name:mdescleft;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.mdescright, li.mdescright, div.mdescright
+	{mso-style-name:mdescright;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.memitemleft, li.memitemleft, div.memitemleft
+	{mso-style-name:memitemleft;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memitemright, li.memitemright, div.memitemright
+	{mso-style-name:memitemright;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplitemleft, li.memtemplitemleft, div.memtemplitemleft
+	{mso-style-name:memtemplitemleft;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplitemright, li.memtemplitemright, div.memtemplitemright
+	{mso-style-name:memtemplitemright;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplparams, li.memtemplparams, div.memtemplparams
+	{mso-style-name:memtemplparams;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.search, li.search, div.search
+	{mso-style-name:search;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+table.MsoTableSimple1
+	{mso-style-name:"Table Simple 1";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border-top:solid green 1.5pt;
+	border-left:none;
+	border-bottom:solid green 1.5pt;
+	border-right:none;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+table.MsoTableSimple1FirstRow
+	{mso-style-name:"Table Simple 1";
+	mso-table-condition:first-row;
+	mso-tstyle-border-bottom:.75pt solid green;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;}
+table.MsoTableSimple1LastRow
+	{mso-style-name:"Table Simple 1";
+	mso-table-condition:last-row;
+	mso-tstyle-border-top:.75pt solid green;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;}
+table.MsoTableList1
+	{mso-style-name:"Table List 1";
+	mso-tstyle-rowband-size:1;
+	mso-tstyle-colband-size:0;
+	border-top:1.5pt;
+	border-left:1.0pt;
+	border-bottom:1.5pt;
+	border-right:1.0pt;
+	border-color:teal;
+	border-style:solid;
+	mso-border-top-alt:1.5pt;
+	mso-border-left-alt:.75pt;
+	mso-border-bottom-alt:1.5pt;
+	mso-border-right-alt:.75pt;
+	mso-border-color-alt:teal;
+	mso-border-style-alt:solid;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+table.MsoTableList1FirstRow
+	{mso-style-name:"Table List 1";
+	mso-table-condition:first-row;
+	mso-tstyle-shading:white;
+	mso-tstyle-pattern:solid silver;
+	mso-tstyle-border-bottom:.75pt solid black;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	color:maroon;
+	mso-ansi-font-weight:bold;
+	mso-bidi-font-weight:bold;
+	mso-ansi-font-style:italic;
+	mso-bidi-font-style:italic;}
+table.MsoTableList1LastRow
+	{mso-style-name:"Table List 1";
+	mso-table-condition:last-row;
+	mso-tstyle-border-top:.75pt solid black;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;}
+table.MsoTableList1OddRow
+	{mso-style-name:"Table List 1";
+	mso-table-condition:odd-row;
+	mso-tstyle-shading:white;
+	mso-tstyle-pattern:solid silver;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	color:windowtext;}
+table.MsoTableList1EvenRow
+	{mso-style-name:"Table List 1";
+	mso-table-condition:even-row;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	color:windowtext;}
+table.MsoTableList1SWCell
+	{mso-style-name:"Table List 1";
+	mso-table-condition:sw-cell;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	mso-ansi-font-weight:bold;
+	mso-bidi-font-weight:bold;}
+</style>
+<![endif]--><![if mso 9]>
+<style>
+p.MsoNormal
+	{margin-left:15.0pt;}
+</style>
+<![endif]><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="4098"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link="#252E78" vlink="#3D2185" style='tab-interval:
+.5in;margin-left:15.0pt;margin-right:15.0pt'>
+
+<div class=Section1>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+mso-border-shadow:yes;background:#99CCFF'>
+
+<h1 style='background:#99CCFF;border:none;mso-border-alt:solid windowtext 1.0pt;
+padding:0in;mso-padding-alt:1.0pt 4.0pt 1.0pt 4.0pt;mso-border-shadow:yes'><span
+class=SpellE><!-- Generated by Doxygen 1.3.9.1 --><span style='color:black'>JTIUtils</span></span><span
+style='color:black'> Class Library V3.3.0<o:p></o:p></span></h1>
+
+</div>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black'>The <span
+class=SpellE>JulMar</span> Utilities (<span class=SpellE><b style='mso-bidi-font-weight:
+normal'>JTIUtils</b></span>) library is a C++ class library with a collection
+of useful classes and structures.<span style='mso-spacerun:yes'>  </span>It has
+been collected and extended over the years to have common things that we have
+found useful in our product development.<span style='mso-spacerun:yes'> 
+</span>This library is usable with Microsoft Visual C++ .NET (any version) but
+has not been tested with any other compiler.<span style='mso-spacerun:yes'> 
+</span>The following is a list of the files which are present in the library,
+along with a short description.<span style='mso-spacerun:yes'>  </span>Click on
+the filename to get a source code listing of that particular file.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableSimple1 border=1 cellspacing=0 cellpadding=0 width=1312
+ style='width:984.0pt;margin-left:26.2pt;border-collapse:collapse;border:none;
+ mso-border-alt:solid silver 1.5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:1.5pt solid silver;mso-border-insidev:1.5pt solid silver'>
+ <tr style='mso-yfti-irow:0'>
+  <td valign=top style='border:solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="JTIUtils_8h-source.html"><span class=SpellE>JTIUtils.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border:solid silver 1.5pt;
+  border-left:none;mso-border-left-alt:solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>The
+  primary header file for the library &#8211; this creates the linkage record
+  and defines some base types and classes.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="stlx_8h-source.html"><span class=SpellE>stlx.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A set of
+  useful STL <span class=SpellE>functors</span> and algorithms for use with
+  Windows.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="AdoConn_8h-source.html"><span class=SpellE>AdoConn.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This
+  implements a wrapper class around Microsoft&#8217;s </span></i><st1:City><st1:place><i><span
+    style='font-family:Arial;color:black'>ADO</span></i></st1:place></st1:City><i><span
+  style='font-family:Arial;color:black'> library for generating disconnected <span
+  class=SpellE>recordsets</span>.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Base64_8h-source.html">Base64.h</a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This
+  implements a set of classes which will MIME-encode and decode data (base 64)<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="binstream_8h-source.html"><span class=SpellE>binstream.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This
+  implements a binary <span class=SpellE>iostream</span> class which can be
+  used to <span class=GramE>persist</span> data in a binary form.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="CommandLineParser_8h-source.html"><span class=SpellE>CommandLineParser.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>Command
+  line parser and <span class=SpellE>tokenizer</span><o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="comutls_8h-source.html"><span class=SpellE>comutls.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>COM
+  specific classes and utility functions<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="DateTime_8h-source.html"><span class=SpellE>DateTime.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  generic Data/Time and Time Span class which can be used independent of MFC or
+  ATL.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Delegates_8h-source.html"><span class=SpellE>Delegates.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>Implementation
+  type safe callbacks which can be either instance methods or static
+  functions.<span style='mso-spacerun:yes'>  </span>This is based on .<span
+  class=GramE>NET<span style='mso-spacerun:yes'>  </span>delegates</span>.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Dyncreate_8cpp-source.html"><span class=SpellE>Dyncreate.cpp</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  replacement for the MFC DYNCREATE facility which uses the native RTTI
+  support.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Dyncreate_8h-source.html"><span class=SpellE>dyncreate.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A replacement
+  for the MFC DYNCREATE facility which uses the native RTTI support<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="EventLog_8h-source.html"><span class=SpellE>EventLog.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A set
+  of classes which will manipulate the Windows NT/2K/XP event log, very similar
+  to .NET.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="FileEventLogger_8cpp-source.html"><span class=SpellE>FileEventLogger.cpp</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  file-based logging class which works with the <span class=SpellE>TraceLogger</span>
+  implementation of this library.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="FileEventLogger_8h-source.html"><span class=SpellE>FileEventLogger.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A file-based
+  logging class which works with the <span class=SpellE>TraceLogger</span>
+  implementation of this library<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="FileSystemWatcher_8cpp-source.html"><span class=SpellE>FileSystemWatcher.cpp</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  class which monitors file/directory changes on NT/2K/XP.<span
+  style='mso-spacerun:yes'>  </span>This is based on the same class in the .NET
+  framework.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:15'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="FileSystemWatcher_8h-source.html"><span class=SpellE>FileSystemWatcher.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  class which monitors file/directory changes on NT/2K/XP.<span
+  style='mso-spacerun:yes'>  </span>This is based on the same class in the .NET
+  framework.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:16'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Lock_8h-source.html"><span class=SpellE>Lock.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A set
+  of locking primitives for managing thread locks.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:17'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Longevity_8cpp-source.html"><span class=SpellE>Longevity.cpp</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  class which enforces specific destruction ordering for global variables.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:18'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Longevity_8h-source.html"><span class=SpellE>Longevity.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  class which enforces specific destruction ordering for global variables.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:19'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="ManagementObject_8h-source.html"><span class=SpellE>ManagementObject.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  wrapper class for the Windows Management Instrumentation interface.<span
+  style='mso-spacerun:yes'>  </span>This is based on the same class in the .NET
+  framework.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:20'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="MemoryMappedFile_8h-source.html"><span class=SpellE>MemoryMappedFile.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  wrapper class for Memory Mapped Files.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:21'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="MemPool_8h-source.html"><span class=SpellE>MemPool.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A small
+  memory pool <span class=SpellE>allocator</span> which can be used to quickly
+  allocate small objects.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:22'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="memstream_8h-source.html"><span class=SpellE>memstream.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>An
+  implementation of the <span class=SpellE>binstream</span> class which uses a
+  memory store as <span class=GramE>it&#8217;s</span> backing.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:23'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="MsxmlHelper_8h-source.html"><span class=SpellE>MsxmlHelper.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  wrapper around the MSXML parser.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:24'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Observer_8h-source.html"><span class=SpellE>Observer.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  simple observer list which allows notifications to occur to any object
+  contained in the list.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:25'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="PsList_8h-source.html"><span class=SpellE>PsList.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A set
+  of classes which allow interaction with the Process list under NT/2K/XP based
+  on the .NET framework implementation.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:26'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="RefCount_8h-source.html"><span class=SpellE>RefCount.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>Support
+  for reference counting and the <span class=SpellE>pimpl</span> or
+  handle-envelope pattern.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:27'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Registry_8h-source.html"><span class=SpellE>Registry.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A set
+  of registry access classes which are very similar to the .NET framework
+  implementation. <o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:28'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="RWLock_8h-source.html"><span class=SpellE>RWLock.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  multi-reader/single-writer locking structure.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:29'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="SEHException_8h-source.html"><span class=SpellE>SEHException.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  simple class which allows SEH exceptions to be caught as standard C++
+  exceptions.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:30'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="ServiceSupport_8cpp-source.html"><span class=SpellE>ServiceSupport.cpp</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A set
+  of base classes which implement NT service control logic for creating NT
+  services.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:31'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="ServiceSupport_8h-source.html"><span class=SpellE>ServiceSupport.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A set of
+  base classes which implement NT service control logic for creating NT
+  services.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:32'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="SingletonRegistry_8h-source.html"><span class=SpellE>SingletonRegistry.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  class for managing singletons.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:33'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="sqlstream_8cpp-source.html"><span class=SpellE>sqlstream.cpp</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A set
+  of SQL creation classes which allow the building of stored procedure
+  invocations to be done with <span class=SpellE>iostream</span>
+  operators.<span style='mso-spacerun:yes'>  </span>This simply generates the
+  SQL command <span class=GramE>text,</span> it does not actually invoke the
+  SQL commands directly.<span style='mso-spacerun:yes'>  </span>These classes
+  were based on the patterns described by Microsoft for n-tier development when
+  using COM.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:34'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="sqlstream_8h-source.html"><span class=SpellE>sqlstream.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A set
+  of SQL creation classes which allow the building of stored procedure
+  invocations to be done with <span class=SpellE>iostream</span>
+  operators.<span style='mso-spacerun:yes'>  </span>This simply generates the
+  SQL command <span class=GramE>text,</span> it does not actually invoke the
+  SQL commands directly.<span style='mso-spacerun:yes'>  </span>These classes
+  were based on the patterns described by Microsoft for n-tier development when
+  using COM<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:35'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="StatTimer_8h-source.html"><span class=SpellE>StatTimer.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>A
+  statistics timer class which makes timing functional processes easier.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:36'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Synchronization_8h-source.html"><span class=SpellE>Synchronization.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>Thread
+  synchronization primitives.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:37'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="ThreadPool_8cpp-source.html"><span class=SpellE>ThreadPool.cpp</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>An implementation
+  of a thread manager which uses I/O completion ports to control a set of
+  threads.<span style='mso-spacerun:yes'>  </span>This is wrapped further by
+  the <span class=SpellE>WorkerThreadPool</span> class which implements a full
+  worker thread pool implementation on top of this support.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:38'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="ThreadPool_8h-source.html"><span class=SpellE>ThreadPool.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>An
+  implementation of a thread manager which uses I/O completion ports to control
+  a set of threads.<span style='mso-spacerun:yes'>  </span>This is wrapped
+  further by the <span class=SpellE>WorkerThreadPool</span> class which
+  implements a full worker thread pool implementation on top of this support.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:39'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="ThunkWriter_8h-source.html"><span class=SpellE>ThunkWriter.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This
+  class writes out x86 <span class=SpellE>thunks</span> which can be used to
+  generate dynamic callbacks.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:40'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Timers_8cpp-source.html"><span class=SpellE>Timers.cpp</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This implements
+  a timer class which uses a dedicated thread for calling back to a set of
+  clients on a programmable basis.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:41'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="Timers_8h-source.html"><span class=SpellE>Timers.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This
+  implements a timer class which uses a dedicated thread for calling back to a set
+  of clients on a programmable basis.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:42'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="TraceLogger_8cpp-source.html"><span class=SpellE>TraceLogger.cpp</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This
+  implements a type-safe trace logging facility which allows for observers to
+  monitor the trace output.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:43'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="TraceLogger_8h-source.html"><span class=SpellE>TraceLogger.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This
+  implements a type-safe trace logging facility which allows for observers to
+  monitor the trace output.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:44'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="tscontainer_8h-source.html"><span class=SpellE>tscontainer.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This
+  implements a type-safe container which locks/unlocks on access.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:45'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="WorkerThreadPool_8h-source.html"><span class=SpellE>WorkerThreadPool.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This
+  implements a worker thread pool implementation that allows work to be
+  scheduled into the thread pool to occur on a background thread.<span
+  style='mso-spacerun:yes'>  </span>The startup/shutdown of the worker threads can
+  be altered via trait classes.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:46'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="XmlConfig_8h-source.html"><span class=SpellE>XmlConfig.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This
+  implements a XML version of .INI file profiles through a set of <span
+  class=SpellE>get_xxx</span> and <span class=SpellE>set_xxx</span> methods
+  that extract specific types from the given XML file.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:47'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="XmlParser_8cpp-source.html"><span class=SpellE>XmlParser.cpp</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This <span
+  class=GramE>implements</span> a poor-mans XML parser which can be used when
+  MSXML is not available.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:48;mso-yfti-lastrow:yes'>
+  <td valign=top style='border:solid silver 1.5pt;border-top:none;mso-border-top-alt:
+  solid silver 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><b><span style='font-family:Arial;color:black'><a
+  href="XmlParser_8h-source.html"><span class=SpellE>XmlParser.h</span></a><o:p></o:p></span></b></p>
+  </td>
+  <td width=1114 valign=top style='width:835.85pt;border-top:none;border-left:
+  none;border-bottom:solid silver 1.5pt;border-right:solid silver 1.5pt;
+  mso-border-top-alt:solid silver 1.5pt;mso-border-left-alt:solid silver 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:1.65pt;margin-right:0in;margin-bottom:
+  1.65pt;margin-left:0in'><i><span style='font-family:Arial;color:black'>This <span
+  class=GramE>implements</span> a poor-mans XML parser which can be used when
+  MSXML is not available.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='color:black'><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

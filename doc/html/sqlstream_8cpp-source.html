@@ -1,0 +1,1262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="sqlstream_8cpp-source_files/filelist.xml">
+<title>JTIUtils: sqlstream.cpp Source File</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>masmith</o:Author>
+  <o:LastAuthor>masmith</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Created>2004-11-15T18:53:00Z</o:Created>
+  <o:LastSaved>2004-11-15T18:53:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1395</o:Words>
+  <o:Characters>7954</o:Characters>
+  <o:Company>Verisign</o:Company>
+  <o:Lines>66</o:Lines>
+  <o:Paragraphs>18</o:Paragraphs>
+  <o:CharactersWithSpaces>9331</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>90</w:Zoom>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=doxygen.css>
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-believe-normal-left:yes;}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-weight:bold;}
+h4
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-weight:bold;}
+h5
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-weight:bold;}
+h6
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:7.5pt;
+	font-weight:bold;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin-top:0in;
+	margin-bottom:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.formuladsp, li.formuladsp, div.formuladsp
+	{mso-style-name:formuladsp;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.fragment, li.fragment, div.fragment
+	{mso-style-name:fragment;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdtable, li.mdtable, div.mdtable
+	{mso-style-name:mdtable;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	background:#F4F4FB;
+	border:none;
+	mso-border-alt:solid #868686 .75pt;
+	padding:0in;
+	mso-padding-alt:0in 0in 0in 0in;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdrow, li.mdrow, div.mdrow
+	{mso-style-name:mdrow;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.mdescleft, li.mdescleft, div.mdescleft
+	{mso-style-name:mdescleft;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.mdescright, li.mdescright, div.mdescright
+	{mso-style-name:mdescright;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.memitemleft, li.memitemleft, div.memitemleft
+	{mso-style-name:memitemleft;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memitemright, li.memitemright, div.memitemright
+	{mso-style-name:memitemright;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplitemleft, li.memtemplitemleft, div.memtemplitemleft
+	{mso-style-name:memtemplitemleft;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplitemright, li.memtemplitemright, div.memtemplitemright
+	{mso-style-name:memtemplitemright;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.memtemplparams, li.memtemplparams, div.memtemplparams
+	{mso-style-name:memtemplparams;
+	margin:3.0pt;
+	mso-pagination:widow-orphan;
+	background:#FAFAFA;
+	border:none;
+	mso-border-top-alt:solid #E0E0E0 .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 0in 0in 0in;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.search, li.search, div.search
+	{mso-style-name:search;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><![if mso 9]>
+<style>
+p.MsoNormal
+	{margin-left:15.0pt;}
+</style>
+<![endif]><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link="#252E78" vlink="#3D2185" style='tab-interval:
+.5in;margin-left:15.0pt;margin-right:15.0pt'>
+
+<div class=Section1>
+
+<div>
+
+<div style='border:solid #CCCCCC 1.0pt;mso-border-alt:solid #CCCCCC .75pt;
+padding:3.0pt 5.0pt 3.0pt 5.0pt;background:whitesmoke;margin-left:1.5pt;
+margin-right:6.0pt'><pre style='margin-top:3.0pt;margin-right:0in;margin-bottom:
+3.0pt;margin-left:0in;background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'><!-- Generated by Doxygen 1.3.9.1 -->00001 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00002 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00003 </span><span
+class=comment><span style='font-family:"Courier New"'>// SQLStream.cpp</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00004 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00005 </span><span
+class=comment><span style='font-family:"Courier New"'>// This file implements the larger data stream functions for the DAC</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00006 </span><span
+class=comment><span style='font-family:"Courier New"'>// building class.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00007 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00008 </span><span
+class=comment><span style='font-family:"Courier New"'>// Copyright (C) 1999-2003 JulMar Technology, Inc.<span style='mso-spacerun:yes'>   </span>All rights reserved</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00009 </span><span
+class=comment><span style='font-family:"Courier New"'>// This is private property of JulMar Technology, Inc.<span style='mso-spacerun:yes'>  </span>It may not be</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00010 </span><span
+class=comment><span style='font-family:"Courier New"'>// distributed or released without express written permission of</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00011 </span><span
+class=comment><span style='font-family:"Courier New"'>// JulMar Technology, Inc.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00012 </span><span
+class=comment><span style='font-family:"Courier New"'>//</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00013 </span><span
+class=comment><span style='font-family:"Courier New"'>// You must not remove this notice, or any other, from this software.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00014 </span><span
+class=comment><span style='font-family:"Courier New"'>// </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00015 </span><span
+class=comment><span style='font-family:"Courier New"'>/****************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00016 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00017 </span><span
+class=comment><span style='font-family:"Courier New"'>/*----------------------------------------------------------------------------</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00018 </span><span
+class=comment><span style='font-family:"Courier New"'><span style='mso-spacerun:yes'>    </span>INCLUDE FILES</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00019 </span><span
+class=comment><span style='font-family:"Courier New"'>-----------------------------------------------------------------------------*/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00020 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#include &quot;stdafx.h&quot;</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00021 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#include &quot;sqlstream.h&quot;</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00022 </span><span
+class=preprocessor><span style='font-family:"Courier New"'>#include &quot;TraceLogger.h&quot;</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00023 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00024 </span><span
+class=keyword><span style='font-family:"Courier New"'>namespace </span></span><span
+style='color:black'>JTI_Dac<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00025 {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00026 </span><span
+class=comment><span style='font-family:"Courier New"'>/**************************************************************************************</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00027 </span><span
+class=comment><span style='font-family:"Courier New"'>** Procedure: CDlDate::ValidatedValue</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00028 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00029 </span><span
+class=comment><span style='font-family:"Courier New"'>** Arguments: void</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00030 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00031 </span><span
+class=comment><span style='font-family:"Courier New"'>** Returns:<span style='mso-spacerun:yes'>     </span>Bool/BSTR pair for the given value.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00032 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00033 </span><span
+class=comment><span style='font-family:"Courier New"'>** Description: This is used during the column creation process to validate the</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00034 </span><span
+class=comment><span style='font-family:"Courier New"'>**<span style='mso-spacerun:yes'>              </span>internal boolean value.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00035 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00036 </span><span
+class=comment><span style='font-family:"Courier New"'>**************************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00037 std::pair&lt;bool,std::wstring&gt; CDlDate::ValidatedValue()</span><span
+class=keyword><span style='font-family:"Courier New"'> const</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00038 {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00039<span style='mso-spacerun:yes'>         </span>SYSTEMTIME st;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00040<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>wchar_t</span></span><span
+style='color:black'> szAnsiDateTime[255] = {0};<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00041<span style='mso-spacerun:yes'>         </span>std::pair&lt;bool,std::wstring&gt; pairValue= std::make_pair(</span><span
+class=keyword><span style='font-family:"Courier New"'>false</span></span><span
+style='color:black'>, std::wstring());<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00042<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>if</span></span><span
+style='color:black'> (get_IsDefined() &amp;&amp; VariantTimeToSystemTime(value_, &amp;st))<span style='mso-spacerun:yes'>    </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00043<span style='mso-spacerun:yes'>         </span>{<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00044<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>if</span></span><span
+style='color:black'> (wsprintfW(szAnsiDateTime, L</span><span
+class=stringliteral><span style='font-family:"Courier New"'>&quot;'%04d-%02d-%02d %02d:%02d:%02d'&quot;</span></span><span
+style='color:black'>, st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond))<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00045<span style='mso-spacerun:yes'>                         </span>pairValue= std::make_pair(</span><span
+class=keyword><span style='font-family:"Courier New"'>true</span></span><span
+style='color:black'>, std::wstring(szAnsiDateTime));<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00046<span style='mso-spacerun:yes'>         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00047<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>return</span></span><span
+style='color:black'> pairValue;<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00048 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00049 }</span><span
+class=comment><span style='font-family:"Courier New"'>// CDlDate::ValidatedValue</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00050 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00051 </span><span
+class=comment><span style='font-family:"Courier New"'>/**************************************************************************************</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00052 </span><span
+class=comment><span style='font-family:"Courier New"'>** Procedure: CDlBstr::ValidatedValue</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00053 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00054 </span><span
+class=comment><span style='font-family:"Courier New"'>** Arguments: void</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00055 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00056 </span><span
+class=comment><span style='font-family:"Courier New"'>** Returns:<span style='mso-spacerun:yes'>     </span>Bool/BSTR pair for the given value.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00057 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00058 </span><span
+class=comment><span style='font-family:"Courier New"'>** Description: This is used during the column creation process to validate the</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00059 </span><span
+class=comment><span style='font-family:"Courier New"'>**<span style='mso-spacerun:yes'>              </span>internal boolean value.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00060 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00061 </span><span
+class=comment><span style='font-family:"Courier New"'>**************************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00062 std::pair&lt;bool,std::wstring&gt; CDlBstr::ValidatedValue()</span><span
+class=keyword><span style='font-family:"Courier New"'> const </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00063 {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00064<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Bracket entire string in single quotes and escape each embedded quote with </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00065<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// by an additional single quote. Zero length string generates destination </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00066<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// string of two consecutive single quotes</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00067<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>wchar_t</span></span><span style='color:black'> *pSrc = value_.c_str();<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00068<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>wchar_t</span></span><span style='color:black'> QUOTE= L</span><span
+class=charliteral><span style='font-family:"Courier New"'>'\''</span></span><span
+style='color:black'>;<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00069 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00070<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Begin building the destination string; it starts with a quote</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00071<span style='mso-spacerun:yes'>         </span>std::wstring strValue; strValue.reserve(value_.length() * 2);<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00072<span style='mso-spacerun:yes'>         </span>strValue = QUOTE;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00073<span style='mso-spacerun:yes'>             </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00074<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// If the string is not null --</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00075<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>if</span></span><span
+style='color:black'> (!value_.empty())<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00076<span style='mso-spacerun:yes'>         </span>{<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00077<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>while</span></span><span
+style='color:black'> (*pSrc)<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00078<span style='mso-spacerun:yes'>         </span>{<span style='mso-spacerun:yes'>   </span><span style='mso-spacerun:yes'>    </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00079<span style='mso-spacerun:yes'>                 </span></span><span
+class=comment><span style='font-family:"Courier New"'>// double-copy sequence of quotes, if any</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00080<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>while</span></span><span
+style='color:black'> (*pSrc &amp;&amp; (*pSrc == QUOTE))<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00081<span style='mso-spacerun:yes'>                 </span>{<span style='mso-spacerun:yes'>       </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00082<span style='mso-spacerun:yes'>                         </span>strValue += *pSrc;<span style='mso-spacerun:yes'>      </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00083<span style='mso-spacerun:yes'>                         </span>strValue += *pSrc++;<span style='mso-spacerun:yes'>    </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00084<span style='mso-spacerun:yes'>                 </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00085 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00086<span style='mso-spacerun:yes'>                 </span></span><span
+class=comment><span style='font-family:"Courier New"'>// pSrc is pointing at non-quote or reached NULL</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00087<span style='mso-spacerun:yes'>                 </span>size_t lFoundAtIdx= wcscspn(pSrc, L</span><span
+class=stringliteral><span style='font-family:"Courier New"'>&quot;'&quot;</span></span><span
+style='color:black'>);<span style='mso-spacerun:yes'>        </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00088<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>if</span></span><span
+style='color:black'> (!lFoundAtIdx) <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00089<span style='mso-spacerun:yes'>                           </span><span style='mso-spacerun:yes'>      </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>continue</span></span><span
+style='color:black'>; </span><span class=comment><span style='font-family:"Courier New"'>//reached NULL<span style='mso-spacerun:yes'>        </span></span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00090 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00091<span style='mso-spacerun:yes'>                         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Copy the new section over and increment our buffer.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00092<span style='mso-spacerun:yes'>                         </span>strValue += std::wstring(pSrc,lFoundAtIdx);<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00093<span style='mso-spacerun:yes'>                 </span>pSrc += lFoundAtIdx; </span><span
+class=comment><span style='font-family:"Courier New"'>// points to quote or terminating NULL<span style='mso-spacerun:yes'>     </span></span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00094<span style='mso-spacerun:yes'>         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00095<span style='mso-spacerun:yes'>         </span>}<span style='mso-spacerun:yes'>       </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00096<span style='mso-spacerun:yes'>             </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00097<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// .. and ends with a quote</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00098<span style='mso-spacerun:yes'>         </span>strValue += QUOTE;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00099 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00100<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>return</span></span><span
+style='color:black'> (value_.empty()) ? std::make_pair(isNullValid_, strValue) : std::make_pair(true, strValue);<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00101 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00102 }</span><span
+class=comment><span style='font-family:"Courier New"'>// CDlBstr::ValidatedValue</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00103 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00104 </span><span
+class=comment><span style='font-family:"Courier New"'>/**************************************************************************************</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00105 </span><span
+class=comment><span style='font-family:"Courier New"'>** Procedure: CDlCmdSQL::BuildCommand</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00106 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00107 </span><span
+class=comment><span style='font-family:"Courier New"'>** Arguments: void</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00108 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00109 </span><span
+class=comment><span style='font-family:"Courier New"'>** Returns:<span style='mso-spacerun:yes'>     </span>String with full command to execute</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00110 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00111 </span><span
+class=comment><span style='font-family:"Courier New"'>** Description: This takes all the parameters and builds a string to send to the </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00112 </span><span
+class=comment><span style='font-family:"Courier New"'>**<span style='mso-spacerun:yes'>              </span>data driver.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00113 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00114 </span><span
+class=comment><span style='font-family:"Courier New"'>**************************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00115 std::wstring CDlCmdSQL::BuildCommand()</span><span
+class=keyword><span style='font-family:"Courier New"'> const</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00116 {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00117<span style='mso-spacerun:yes'>         </span>std::wstring strExpression(sqlText_); <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00118<span style='mso-spacerun:yes'>         </span>strExpression.reserve(lstrlenW(sqlText_)+argLength_);<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00119 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00120<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Walk the expressions, changing out the question marks which </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00121<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// indicate parameters for the real string in our array.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00122<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordtype><span style='font-family:"Courier New"'>long</span></span><span
+style='color:black'> nCurr = 0;<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00123<span style='mso-spacerun:yes'>         </span>std::wstring::size_type idx = strExpression.find_first_of(L</span><span
+class=charliteral><span style='font-family:"Courier New"'>'?'</span></span><span
+style='color:black'>, 0);<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00124<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>while</span></span><span
+style='color:black'> (idx != std::wstring::npos)<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00125<span style='mso-spacerun:yes'>         </span>{<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00126<span style='mso-spacerun:yes'>                 </span>JTI_ASSERT(static_cast&lt;long&gt;(argsArray_.size()) &gt; nCurr);<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00127<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>if</span></span><span
+style='color:black'> (static_cast&lt;long&gt;(argsArray_.size()) &gt; nCurr)<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00128<span style='mso-spacerun:yes'>                         </span>strExpression.replace(idx,1,argsArray_[nCurr].c_str());<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00129<span style='mso-spacerun:yes'>                 </span>++nCurr; idx = strExpression.find_first_of(L</span><span
+class=charliteral><span style='font-family:"Courier New"'>'?'</span></span><span
+style='color:black'>, idx+1);<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00130<span style='mso-spacerun:yes'>         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00131 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00132<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>return</span></span><span
+style='color:black'> strExpression;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00133 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00134 }</span><span
+class=comment><span style='font-family:"Courier New"'>// CDlCmdSQL::BuildCommand</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00135 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00136 </span><span
+class=comment><span style='font-family:"Courier New"'>/**************************************************************************************</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00137 </span><span
+class=comment><span style='font-family:"Courier New"'>** Procedure: CDlCmdExec::BuildCommand</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00138 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00139 </span><span
+class=comment><span style='font-family:"Courier New"'>** Arguments: void</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00140 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00141 </span><span
+class=comment><span style='font-family:"Courier New"'>** Returns:<span style='mso-spacerun:yes'>     </span>String with full command to execute</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00142 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00143 </span><span
+class=comment><span style='font-family:"Courier New"'>** Description: This takes all the parameters and builds a string to send to the </span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00144 </span><span
+class=comment><span style='font-family:"Courier New"'>**<span style='mso-spacerun:yes'>              </span>data driver.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00145 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00146 </span><span
+class=comment><span style='font-family:"Courier New"'>**************************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00147 std::wstring CDlCmdExec::BuildCommand()</span><span
+class=keyword><span style='font-family:"Courier New"'> const</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00148 {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00149<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>wchar_t</span></span><span style='color:black'>* gpszExec = L</span><span
+class=stringliteral><span style='font-family:"Courier New"'>&quot;Exec &quot;</span></span><span
+style='color:black'>;<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00150<span style='mso-spacerun:yes'>         </span>std::wstring strExpression;<span style='mso-spacerun:yes'>      </span><o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00151<span style='mso-spacerun:yes'>         </span>strExpression.reserve(lstrlenW(gpszExec)+lstrlenW(sqlText_)+1+argLength_+static_cast&lt;int&gt;(argsPairArray_.size()));<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00152<span style='mso-spacerun:yes'>       </span><span style='mso-spacerun:yes'>  </span>strExpression = gpszExec;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00153 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00154<span style='mso-spacerun:yes'>         </span>strExpression += sqlText_;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00155<span style='mso-spacerun:yes'>         </span>strExpression += L</span><span
+class=charliteral><span style='font-family:"Courier New"'>' '</span></span><span
+style='color:black'>;<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00156 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00157<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Append all paramater expressions with a trailing comma.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00158<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>for</span></span><span
+style='color:black'>(std::vector&lt;std::pair&lt;std::wstring,std::wstring&gt; &gt;::const_iterator it = argsPairArray_.begin(); it != argsPairArray_.end(); ++it)<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00159<span style='mso-spacerun:yes'>         </span>{<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00160<span style='mso-spacerun:yes'>                 </span>strExpression += L</span><span
+class=charliteral><span style='font-family:"Courier New"'>'@'</span></span><span
+style='color:black'>;<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00161<span style='mso-spacerun:yes'>                 </span>strExpression += it-&gt;first;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00162<span style='mso-spacerun:yes'>                 </span>strExpression += L</span><span
+class=charliteral><span style='font-family:"Courier New"'>'='</span></span><span
+style='color:black'>;<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00163<span style='mso-spacerun:yes'>          </span><span style='mso-spacerun:yes'>       </span>strExpression += it-&gt;second;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00164<span style='mso-spacerun:yes'>                 </span>strExpression += L</span><span
+class=charliteral><span style='font-family:"Courier New"'>','</span></span><span
+style='color:black'>;<o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00165<span style='mso-spacerun:yes'>         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00166 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00167<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Remove the trailing comma or blank.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00168<span style='mso-spacerun:yes'>         </span>strExpression.erase(strExpression.length()-1);<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00169<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>return</span></span><span
+style='color:black'> strExpression;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00170 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00171 }</span><span
+class=comment><span style='font-family:"Courier New"'>// CDlCmdExec::BuildCommand</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00172 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00173 </span><span
+class=comment><span style='font-family:"Courier New"'>/**************************************************************************************</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00174 </span><span
+class=comment><span style='font-family:"Courier New"'>** Procedure: CDlCmdShape::BuildCommand</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00175 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00176 </span><span
+class=comment><span style='font-family:"Courier New"'>** Arguments: void</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00177 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00178 </span><span
+class=comment><span style='font-family:"Courier New"'>** Returns:<span style='mso-spacerun:yes'>     </span>String representing command to execute</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00179 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00180 </span><span
+class=comment><span style='font-family:"Courier New"'>** Description: This builds the shape command to send to the driver.</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00181 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00182 </span><span
+class=comment><span style='font-family:"Courier New"'>** The format for shape commands are:</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00183 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00184 </span><span
+class=comment><span style='font-family:"Courier New"'>** SHAPE<span style='mso-spacerun:yes'>  </span>{ primary SQL statement }</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00185 </span><span
+class=comment><span style='font-family:"Courier New"'>** APPEND ({ secondary SQL statement}</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00186 </span><span
+class=comment><span style='font-family:"Courier New"'>** RELATE field to field) AS primary_field ,</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00187 </span><span
+class=comment><span style='font-family:"Courier New"'>**<span style='mso-spacerun:yes'>        </span>({ ... })</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00188 </span><span
+class=comment><span style='font-family:"Courier New"'>**</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00189 </span><span
+class=comment><span style='font-family:"Courier New"'>**************************************************************************************/</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00190 std::wstring CDlCmdShape::BuildCommand()</span><span
+class=keyword><span style='font-family:"Courier New"'> const</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00191 {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00192<span style='mso-spacerun:yes'>         </span></span><span
+class=keyword><span style='font-family:"Courier New"'>static</span></span><span
+style='color:black'> </span><span class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> </span><span class=keywordtype><span style='font-family:
+"Courier New"'>wchar_t</span></span><span style='color:black'> * </span><span
+class=keyword><span style='font-family:"Courier New"'>const</span></span><span
+style='color:black'> gSyntax_[] = {<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00193<span style='mso-spacerun:yes'>                 </span>L</span><span
+class=stringliteral><span style='font-family:"Courier New"'>&quot;SHAPE { &quot;</span></span><span
+style='color:black'>,<span style='mso-spacerun:yes'>            </span></span><span
+class=comment><span style='font-family:"Courier New"'>// 0</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00194<span style='mso-spacerun:yes'>                 </span>L</span><span
+class=stringliteral><span style='font-family:"Courier New"'>&quot; } APPEND &quot;</span></span><span
+style='color:black'>,<span style='mso-spacerun:yes'>          </span></span><span
+class=comment><span style='font-family:"Courier New"'>// 1</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00195<span style='mso-spacerun:yes'>                 </span>L</span><span
+class=stringliteral><span style='font-family:"Courier New"'>&quot; ({ &quot;</span></span><span
+style='color:black'>,<span style='mso-spacerun:yes'>                        </span></span><span
+class=comment><span style='font-family:"Courier New"'>// 2</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00196<span style='mso-spacerun:yes'>         </span><span style='mso-spacerun:yes'>        </span>L</span><span
+class=stringliteral><span style='font-family:"Courier New"'>&quot; } &quot;</span></span><span
+style='color:black'>,<span style='mso-spacerun:yes'>                         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// 3</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00197<span style='mso-spacerun:yes'>                 </span>L</span><span
+class=stringliteral><span style='font-family:"Courier New"'>&quot;, &quot;</span></span><span
+style='color:black'><span style='mso-spacerun:yes'>                           </span></span><span
+class=comment><span style='font-family:"Courier New"'>// 4</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00198<span style='mso-spacerun:yes'>         </span>};<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00199 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00200<span style='mso-spacerun:yes'>         </span></span><span
+class=comment><span style='font-family:"Courier New"'>// Build the shape command</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00201<span style='mso-spacerun:yes'>         </span>std::wstring sResult = gSyntax_[0];<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00202<span style='mso-spacerun:yes'>         </span>sResult += textHeader_;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00203<span style='mso-spacerun:yes'>         </span>sResult += gSyntax_[1];<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00204 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00205<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>for</span></span><span
+style='color:black'> (std::vector&lt;std::pair&lt;std::wstring,std::wstring&gt; &gt;::const_iterator it = shapeDetails_.begin(); it != shapeDetails_.end(); ++it)<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00206<span style='mso-spacerun:yes'>         </span>{<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00207<span style='mso-spacerun:yes'>                 </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>if</span></span><span
+style='color:black'> (it != shapeDetails_.begin())<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00208<span style='mso-spacerun:yes'>                         </span>sResult += gSyntax_[4];<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00209<span style='mso-spacerun:yes'>                 </span>sResult += gSyntax_[2];<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00210<span style='mso-spacerun:yes'>                 </span>sResult += it-&gt;first;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00211<span style='mso-spacerun:yes'>                 </span>sResult += gSyntax_[3];<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00212<span style='mso-spacerun:yes'>                 </span>sResult += it-&gt;second;<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00213<span style='mso-spacerun:yes'>         </span>}<o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00214<span style='mso-spacerun:yes'>         </span></span><span
+class=keywordflow><span style='font-family:"Courier New"'>return</span></span><span
+style='color:black'> sResult;<o:p></o:p></span></pre><pre style='margin-top:
+3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00215 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00216 }</span><span
+class=comment><span style='font-family:"Courier New"'>// CDlCmdShape::BuildCommand</span></span><span
+style='color:black'><o:p></o:p></span></pre><pre style='margin-top:3.0pt;
+margin-right:0in;margin-bottom:3.0pt;margin-left:0in;background:whitesmoke;
+border:none;mso-border-alt:solid #CCCCCC .75pt;padding:0in;mso-padding-alt:
+3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00217 <o:p></o:p></span></pre><pre
+style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;margin-left:0in;
+background:whitesmoke;border:none;mso-border-alt:solid #CCCCCC .75pt;
+padding:0in;mso-padding-alt:3.0pt 5.0pt 3.0pt 5.0pt'><span style='color:black'>00218 }</span><span
+class=comment><span style='font-family:"Courier New"'>// namespace JTI_Dac</span></span><span
+style='color:black'><o:p></o:p></span></pre></div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
